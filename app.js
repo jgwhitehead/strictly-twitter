@@ -63,6 +63,10 @@ let dancers = [
     {
         'name': 'Kate',
         'handle': '@katesilverton'
+    },
+    {
+        'name': 'Ashley',
+        'handle': '@ImAshleyRoberts'
     }
 ]
 
