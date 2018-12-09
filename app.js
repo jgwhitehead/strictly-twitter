@@ -9,11 +9,11 @@ var sentiment = new Sentiment()
 
 
 function analyze(tweets, dancer) {
-    // console.log("tweets:" + JSON.stringify(tweets,null,3));  // The favorites.
+    console.log("tweets:" + JSON.stringify(tweets,null,3));  // The favorites.
     // console.log(typeof tweets)
     totalComparative = 0
     for (tweet of tweets.statuses) {
-        // console.log(tweet.text)
+        // console.log(tweet.text)s
         // console.log('Sentiment: '+sentiment.analyze(tweet.text).score)
         // console.log('comparative: '+sentiment.analyze(tweet.text).comparative)
         totalComparative += sentiment.analyze(tweet.text).comparative
@@ -33,10 +33,6 @@ function analyze(tweets, dancer) {
 
 let dancers = [
     {
-        'name': 'Charles',
-        'handle': '@ChuckyVenn'
-    },
-    {
         'name': 'Lauren',
         'handle': '@LaurenSteadman'
     },
@@ -52,19 +48,7 @@ let dancers = [
         'name': 'Faye',
         'handle': '@Faye_Tozer'
     },
-    {
-        'name': 'Graeme',
-        'handle': '@swannyg66'
-    },
-    {
-        'name': 'Danny',
-        'handle': '@DannyJohnJules'
-    },
-    {
-        'name': 'Kate',
-        'handle': '@katesilverton'
-    },
-    {
+     {
         'name': 'Ashley',
         'handle': '@ImAshleyRoberts'
     }
@@ -72,7 +56,7 @@ let dancers = [
 
 let queries = [];
 for (let dancer of dancers) {
-    const query = client.get('search/tweets', { q: '#strictly ' + dancer.handle, count: 100,until:'2018-11-10' });
+    const query = client.get('search/tweets', { q: '#strictly ' + dancer.handle, count: 100,until:'2018-12-9' });
     queries.push(query)
     const dancerPromise = query.then(function (response) {
         analyze(response, dancer)
